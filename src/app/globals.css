@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #02080e;
+  --vital: #34dba8;   /* jade — the DNA strand, the primary accent */
+  --pulse: #ff6b8a;
+  --neuro: #9986ff;
+  --clinical: #5ddcff;
+  --bio: #e8c466;     /* gold — the design / intentionality highlight */
+  --ghost: #e6f0e8;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--void);
+  color: var(--ghost);
+}
+
+body {
+  background-color: #02080e;
+  background-image:
+    radial-gradient(ellipse 1240px 720px at 12% -10%, rgba(52, 219, 168, 0.18), transparent 60%),
+    radial-gradient(ellipse 1000px 560px at 92% 4%, rgba(93, 220, 255, 0.16), transparent 62%),
+    radial-gradient(ellipse 1100px 640px at 82% 96%, rgba(232, 196, 102, 0.12), transparent 60%),
+    radial-gradient(ellipse 1300px 720px at 24% 118%, rgba(153, 134, 255, 0.10), transparent 60%),
+    radial-gradient(ellipse 1100px 600px at 50% 50%, rgba(255, 107, 138, 0.04), transparent 70%);
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(52, 219, 168, 0.35); color: #effff7; }
+
+.display { font-family: "Sora", ui-sans-serif, system-ui, sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+.zh { font-family: "Noto Serif SC", serif; font-weight: 500; letter-spacing: 0; }
+.label-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.26em; text-transform: uppercase; font-size: 0.62rem; color: #8aedd1;
+}
+.mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+/* jade — the life-code accent */
+.vital-text {
+  color: #8aedd1;
+  text-shadow: 0 0 26px rgba(52, 219, 168, 0.6), 0 0 80px rgba(27, 197, 134, 0.35);
+}
+.pulse-text {
+  color: #ffb3c4;
+  text-shadow: 0 0 22px rgba(255, 107, 138, 0.55);
+}
+.neuro-text {
+  color: #d0c5ff;
+  text-shadow: 0 0 22px rgba(153, 134, 255, 0.55);
+}
+.clinical-text {
+  color: #b6f0ff;
+  text-shadow: 0 0 22px rgba(93, 220, 255, 0.55);
+}
+/* gold — the design / intentionality accent */
+.bio-text {
+  color: #fae4a3;
+  text-shadow: 0 0 22px rgba(232, 196, 102, 0.6);
+}
+
+/* glass instrument panel — deep ocean with a jade edge */
+.holo {
+  background: linear-gradient(155deg, rgba(20, 50, 70, 0.62), rgba(4, 15, 26, 0.92));
+  border: 1px solid rgba(52, 219, 168, 0.14);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.holo:hover { border-color: rgba(52, 219, 168, 0.4); box-shadow: 0 0 40px -16px rgba(52, 219, 168, 0.5); }
+
+/* the gene-editing divider — jade → cyan → gold → violet → rose */
+.rule-life {
+  background: linear-gradient(90deg, transparent, rgba(52,219,168,0.7) 12%, rgba(93,220,255,0.55) 38%, rgba(232,196,102,0.55) 60%, rgba(153,134,255,0.5) 80%, rgba(255,107,138,0.4) 94%, transparent);
+}
+
+/* faint molecular grid backdrop */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(52, 219, 168, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 219, 168, 0.04) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* animated dash flow — strand / replication */
+@keyframes flow { to { stroke-dashoffset: -36; } }
+.flow { stroke-dasharray: 4 8; animation: flow 1.4s linear infinite; }
+
+@keyframes pulseGlow { 0%,100% { opacity: 0.45; } 50% { opacity: 1; } }
+.pulse-anim { animation: pulseGlow 2.4s ease-in-out infinite; }
+
+@keyframes beat { 0%,100% { transform: scale(1); } 14% { transform: scale(1.16); } 28% { transform: scale(1); } 42% { transform: scale(1.1); } 56% { transform: scale(1); } }
+.beat { animation: beat 1.6s ease-in-out infinite; transform-origin: center; }
+
+@keyframes drift { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+.drift { animation: drift 7s ease-in-out infinite; }
+
+@keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+.rise-in { animation: riseIn 0.9s cubic-bezier(0.2,0.7,0.2,1) both; }
+.lang-fade { animation: riseIn 0.42s ease both; }
+
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker { animation: ticker 50s linear infinite; }
+
+@keyframes spinslow { to { transform: rotate(360deg); } }
+.spin-slow { animation: spinslow 28s linear infinite; transform-origin: center; }
+
+@keyframes breathe { 0%,100% { transform: scale(1); opacity: 0.78; } 50% { transform: scale(1.05); opacity: 1; } }
+.breathe { animation: breathe 7s ease-in-out infinite; transform-origin: center; }
+
+@keyframes shimmer { 0%,100% { opacity: 0.6; filter: hue-rotate(0deg); } 50% { opacity: 1; filter: hue-rotate(8deg); } }
+.shimmer { animation: shimmer 4.5s ease-in-out infinite; }
+
+@keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+.caret { animation: blink 1s step-end infinite; }
+
+::-webkit-scrollbar { width: 10px; background: #02080e; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #0e253c, #1d4368); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #1bc586; }
